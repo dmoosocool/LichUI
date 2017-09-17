@@ -1,0 +1,54 @@
+@import "lib/variable";
+@import "lib/function";
+body {
+  background-color: @body-background;
+  -webkit-font-smoothing: antialiased;
+  font-family: arial, sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: 0;
+  outline: 0;
+}
+body,h1,h2,h3,h4,h5,h6,input {
+  padding: 0;
+  margin:0;
+}
+input ,textarea {
+  outline: 0;
+  border:0;
+  -webkit-user-select: auto;
+  -webkit-appearance: none;
+}
+textarea {
+  resize: none;
+}
+.icon {
+  width:1em;
+  height:1em;
+  display:block;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+  margin:0 auto;
+}
+.icon-group {
+  color: #acacac;
+  letter-spacing: 0;
+  text-align: center;
+  .icon {
+    width:px2rem(26);
+    height:px2rem(18);
+  }
+  >span {
+    display: inline-block;
+    line-height: px2rem(17);
+    font-size: px2rem(12);
+    margin-top:px2rem(9);
+  }
+}

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="./lib/flexible.debug.js"></script>
+    <link rel="stylesheet" href="./lib/Lich/LichUI.css">
+    <link rel="stylesheet" href="./example.css">
+</head>
+
+<body>
+    <h1> Hello LichUI. </h1>
+    <h2>Form</h2>
+    <button class="btn btn-primary forward-url" data-url="./component/form/button.html">按钮</button>
+
+    <h2>Dialog</h2>
+    <button class="btn btn-primary forward-url" data-url="./component/dialog/confirm.html">confirm 对话框</button>
+    <button class="btn btn-primary forward-url" data-url="./component/dialog/alert.html">alert 对话框</button>
+
+    <script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script src="//cdn.bootcss.com/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="./lib/Lich/LichUI.js"></script>
+    <script>
+        $('.forward-url').on('click', function () {
+            location.href = $(this).data('url');
+        });
+    </script>
+</body>
+
+</html>

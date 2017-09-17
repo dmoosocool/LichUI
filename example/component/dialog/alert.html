@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../lib/flexible.debug.js"></script>
+    <link rel="stylesheet" href="../../lib/Lich/LichUI.css">
+    <link rel="stylesheet" href="../../example.css">
+</head>
+
+<body>
+    <a class="btn btn-primary alert">默认alert框</a>
+    <a class="btn btn-primary alert" data-type="default" href="javascript:">默认的alert</a>
+    <a class="btn btn-primary alert" data-type="title" href="javascript:">自定义标题的alert</a>
+    <a class="btn btn-primary alert" data-type="align" href="javascript:">自定义对齐的alert</a>
+    <a class="btn btn-primary alert" data-type="btnText" href="javascript:">自定义按钮文本的alert</a>
+    <a class="btn btn-primary alert" data-type="callback" href="javascript:">支持回调事件的alert</a>
+    <script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script src="//cdn.bootcss.com/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="../../lib/Lich/LichUI.js"></script>
+    <script>
+        $('.alert').on('click', function () {
+            var type = $(this).data('type') || 'default';
+            var options = {};
+            switch (type) {
+                case 'title':
+                    options = {
+                        title: '自定义的警告标题',
+                        content: '这是一条警告信息'
+                    };
+
+                    break;
+                case 'align':
+                    options = {
+                        title: '自定义内容方向',
+                        align: 'left',
+                        content: '这是一条向左的警告信息'
+                    };
+                    break;
+                case 'btnText':
+                    options = {
+                        title: '自定义按钮文本',
+                        align: 'right',
+                        content: '得不到的永远在骚动<br/>被偏爱的都有恃无恐<br/> --红玫瑰',
+                        btn: {
+                            text: '这是警告按钮',
+                        }
+                    };
+                    break;
+                case 'callback':
+                    options = {
+                        title: '支持回调',
+                        align: 'right',
+                        content: '得不到的永远在骚动<br/>被偏爱的都有恃无恐<br/> --红玫瑰',
+                        btn: {
+                            text: '这是警告按钮',
+                            callback: function () {
+                                console.log('alert框已经被你点击了！');
+                            }
+                        }
+                    };
+                    break;
+                default:
+                    options = {
+                        content: '尚未佩妥剑，转眼便江湖。<br/>愿历尽千帆，归来仍少年。'
+                    };
+                    break;
+            }
+
+            LichUI.Dialog.Alert(options);
+        });
+    </script>
+</body>
+
+</html>

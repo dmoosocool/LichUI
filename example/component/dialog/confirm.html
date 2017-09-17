@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="../../lib/flexible.debug.js"></script>
+    <link rel="stylesheet" href="../../lib/Lich/LichUI.css">
+    <link rel="stylesheet" href="../../example.css">
+</head>
+
+<body>
+    <a class="btn btn-primary confirm">默认对话框</a>
+    <a class="btn btn-primary confirm" data-type="default" href="javascript:">默认的Confirm</a>
+    <a class="btn btn-primary confirm" data-type="title" href="javascript:">自定义标题的Confirm</a>
+    <a class="btn btn-primary confirm" data-type="align" href="javascript:">自定义对齐的Confirm</a>
+    <a class="btn btn-primary confirm" data-type="btnText" href="javascript:">自定义按钮文本的Confirm</a>
+    <a class="btn btn-primary confirm" data-type="callback" href="javascript:">支持回调事件的Confirm</a>
+    <a class="btn btn-primary confirm" data-type="closeBtn" href="javascript:">带关闭按钮的Confirm</a>
+    <script src="//cdn.bootcss.com/zepto/1.2.0/zepto.min.js"></script>
+    <script src="//cdn.bootcss.com/lodash.js/4.17.4/lodash.min.js"></script>
+    <script src="../../lib/Lich/LichUI.js"></script>
+    <script src="../../lib/iconfont.js"></script>
+    <script>
+        $('.confirm').on('click', function () {
+            var type = $(this).data('type') || 'default';
+            var options = {};
+            switch (type) {
+                case 'closeBtn':
+                    options = {
+                        content: '尚未佩妥剑，转眼便江湖。<br/>愿历尽千帆，归来仍少年。',
+                        closeBtn: true
+                    };
+                    break;
+                case 'title':
+                    options = {
+                        title: '三生三世十里桃花',
+                        content: '桃之夭夭，<br/>灼灼其华，<br/>任春风十里轻飏，<br/>奏一曲波澜眷恋。'
+                    };
+
+                    break;
+                case 'align':
+                    options = {
+                        title: '自定义内容对齐',
+                        align: 'left',
+                        content: '劝君更尽一杯酒，与尔同消万古愁。'
+                    };
+                    break;
+                case 'btnText':
+                    options = {
+                        title: '自定义按钮文本',
+                        align: 'right',
+                        content: '得不到的永远在骚动<br/>被偏爱的都有恃无恐<br/> --红玫瑰',
+                        leftBtn: {
+                            text: '不喜欢☹️️'
+                        },
+                        rightBtn: {
+                            text: '喜欢😊'
+                        }
+                    };
+                    break;
+                case 'callback':
+                    options = {
+                        title: '支持回调',
+                        align: 'right',
+                        content: '得不到的永远在骚动<br/>被偏爱的都有恃无恐<br/> --红玫瑰',
+                        leftBtn: {
+                            text: '不喜欢☹️️',
+                            callback: function () {
+                                console.log('唔...我也不喜欢这个.');
+                            }
+                        },
+                        rightBtn: {
+                            text: '喜欢😊',
+                            callback: function () {
+                                console.log('嘿嘿😜 我也喜欢这个');
+                            }
+                        }
+                    };
+                    break;
+                default:
+                    options = {
+                        content: '尚未佩妥剑，转眼便江湖。<br/>愿历尽千帆，归来仍少年。'
+                    };
+                    break;
+            }
+
+            LichUI.Dialog.Confirm(options);
+        });
+    </script>
+</body>
+
+</html>

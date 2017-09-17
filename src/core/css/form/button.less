@@ -1,0 +1,40 @@
+@import "../lib/variable";
+@import "../lib/function";
+.btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+    padding: px2rem(13) 0;
+    border-radius: 6px;
+    font-size: px2rem(18);
+    letter-spacing: 0;
+}
+
+.btn-primary {
+    color: #fff;
+    opacity: .9;
+    background: #0469C8;
+    &:active {
+        background: darken(#0469C8, 10%);
+        color: darken(#fff, 10%);
+    }
+}
+
+.btn-normal {
+    color: #0469C8;
+    border: 1px solid #0469C8;
+    background: #fcfcfc;
+    border-radius: 6px;
+    &:active {
+        background: darken(#fcfcfc, 10%);
+        color: darken(#0469C8, 10%);
+    }
+}
+
+.btn-disabled {
+    background: rgba(255, 255, 255, 0.50);
+    border: 1px solid #D1DFE9;
+    border-radius: 6px;
+    color: #000000;
+    opacity: .5;
+}
